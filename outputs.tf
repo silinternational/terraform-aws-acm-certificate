@@ -6,5 +6,5 @@ output "certificate_arn" {
 
 output "validation_id" {
   description = "The time at which the certificate was issued"
-  value       = aws_acm_certificate_validation.this.id
+  value       = one(aws_acm_certificate_validation.this).id
 }
