@@ -23,7 +23,6 @@ resource "cloudflare_record" "validation" {
 }
 
 resource "aws_acm_certificate_validation" "this" {
-  count                   = var.create_dns_validation ? 1 : 0
   certificate_arn         = aws_acm_certificate.this.arn
   validation_record_fqdns = [cloudflare_record.validation[0].hostname]
 }
